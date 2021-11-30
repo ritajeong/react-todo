@@ -22,10 +22,14 @@ function App(){
     setTodoList(old => old.filter(todo => todo.id !== targetId));
   }
 
+  function completeTodo(targetId){
+    setTodoList(old => old.map(todo => todo.id !== targetId ? todo : {...todo, completed: ! todo.completed }));
+  }
+
   return (
     <section className="todoapp">
       <Header addTodo={addTodo} />
-      <Main todoList={todoList} deleteTodo={deleteTodo}/>
+      <Main todoList={todoList} deleteTodo={deleteTodo} completeTodo={completeTodo} />
       <Footer />
     </section>
   );
