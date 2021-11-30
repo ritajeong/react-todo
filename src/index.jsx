@@ -4,6 +4,8 @@ import './index.css';
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
+import { produce } from "immer";
+
 // https://github.com/twinstae/realworld-react-redux/commits/main/todoMVC-react
 
 function App(){
@@ -23,7 +25,10 @@ function App(){
   }
 
   function completeTodo(targetId){
-    setTodoList(old => old.map(todo => todo.id !== targetId ? todo : {...todo, completed: ! todo.completed }));
+    setTodoList(produce(old => {
+        const target = old.find(todo => todo.id === targetId);
+        target.completed = !target.completed;
+    }));
   }
 
   return (
