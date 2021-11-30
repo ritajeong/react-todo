@@ -18,10 +18,14 @@ function App(){
     setTodoList(old => [...old, newTodo]);
   }
 
+  function deleteTodo(targetId){
+    setTodoList(old => old.filter(todo => todo.id !== targetId));
+  }
+
   return (
     <section className="todoapp">
       <Header addTodo={addTodo} />
-      <Main todoList={todoList} />
+      <Main todoList={todoList} deleteTodo={deleteTodo}/>
       <Footer />
     </section>
   );
