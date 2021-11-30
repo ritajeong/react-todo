@@ -13,13 +13,7 @@ function TodoItem({ content, completed }){
     )
 }
 
-export default function Main() {
-  const [todoList, setTodoList] = useState([
-    {content: "투두 리스트", completed: false},
-    {content: "투두 리스트", completed: false},
-    {content: "투두 리스트", completed: false},
-  ]);
-
+export default function Main({ todoList }) {
   return (
     <section className="main">
         <input id="toggle-all" className="toggle-all" type="checkbox" checked={false} />
