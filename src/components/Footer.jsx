@@ -1,6 +1,9 @@
 import React from 'react'
-
+import useTodoListAtom from '../state';
 export default function Footer() {
+
+  const { clearCompleted } = useTodoListAtom();
+
   return (
     <footer className="footer">
         <span className="todo-count">
@@ -21,7 +24,7 @@ export default function Footer() {
             <a href="#/completed" className="">Completed</a>
         </li>
         </ul>
-        <button className="clear-completed">Clear completed</button>
+        <button className="clear-completed" onClick={(e) => clearCompleted()}>Clear completed</button>
     </footer>
   )
 }

@@ -23,7 +23,11 @@ function useTodoListAtom() {
     setTodoList(domain.completeTodo(targetId));
   }
 
-  return { todoList, addTodo, deleteTodo, completeTodo }; // 객체로 만들어서 리턴;
+  function clearCompleted() {
+    setTodoList(domain.clearCompleted);
+  }
+
+  return { todoList, addTodo, deleteTodo, completeTodo, clearCompleted }; // 객체로 만들어서 리턴;
 }
 
 export default useTodoListAtom; // 내보내기

@@ -11,20 +11,21 @@ describe('todoList domain', () => {
     expect(result).toEqual([TEST_TODO]);
   });
 
-  // (old) => old.filter((todo) => todo.id !== targetId)
-
   it('deleteTodo', () => {
-    // (newTodo) => (old) => [...old, newTodo]
     const result = domain.deleteTodo(TEST_TODO.id)([TEST_TODO]);
 
     expect(result).toEqual([]);
   });
 
   it('completeTodo', () => {
-    // (newTodo) => (old) => [...old, newTodo]
     const result = domain.completeTodo(TEST_TODO.id)([TEST_TODO]);
 
     expect(result).toEqual([{...TEST_TODO, completed: true}]);
   });
 
+  it('clearCompleted', () => {
+    const result = domain.clearCompleted([TEST_TODO, TEST_TODO_COMPLETED]);
+
+    expect(result).toEqual([TEST_TODO]);
+  });
 });

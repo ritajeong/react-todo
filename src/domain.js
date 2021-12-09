@@ -7,6 +7,7 @@ const domain = {
     const target = old.find((todo) => todo.id === targetId);
     target.completed = !target.completed;
   }),
+  clearCompleted: (old) => old.filter((todo) => todo.completed === false ),
 }
 
 export default domain;
