@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
+import useTodoListAtom from '../state';
 
-export default function Header({addTodo}) {
+export default function Header() {
+  const { addTodo } = useTodoListAtom();
+
   const [todoInput, setTodoInput] = useState('');
 
   function handleChange(e){

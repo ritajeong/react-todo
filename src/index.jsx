@@ -9,11 +9,11 @@ import useTodoListAtom from './state';
 // https://github.com/twinstae/realworld-react-redux/commits/main/todoMVC-react
 
 function App() {
-  const {addTodo, todoList, completeTodo, deleteTodo } = useTodoListAtom();
+  const { todoList } = useTodoListAtom();
   return (
     <section className="todoapp">
-      <Header addTodo={addTodo} />
-      <Main todoList={todoList} deleteTodo={deleteTodo} completeTodo={completeTodo} />
+      <Header />
+      <Main todoList={todoList} />
       <Footer />
     </section>
   );
