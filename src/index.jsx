@@ -4,33 +4,12 @@ import './index.css';
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
-import { produce } from "immer";
+import useTodoListAtom from './state';
 
 // https://github.com/twinstae/realworld-react-redux/commits/main/todoMVC-react
 
-function App(){
-  const initialValue = [
-    { id: crypto.randomUUID(), content: "투두 리스트", completed: false},
-  ]
-  const [todoList, setTodoList] = useState(initialValue);
-
-  function addTodo(content){
-    const newTodo = { id: crypto.randomUUID(), content, completed: false };
-
-    setTodoList(old => [...old, newTodo]);
-  }
-
-  function deleteTodo(targetId){
-    setTodoList(old => old.filter(todo => todo.id !== targetId));
-  }
-
-  function completeTodo(targetId){
-    setTodoList(produce(old => {
-        const target = old.find(todo => todo.id === targetId);
-        target.completed = !target.completed;
-    }));
-  }
-
+function App() {
+  const {addTodo, todoList, completeTodo, deleteTodo } = useTodoListAtom();
   return (
     <section className="todoapp">
       <Header addTodo={addTodo} />
