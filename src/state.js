@@ -1,5 +1,5 @@
 import { atom, useAtom } from 'jotai';
-import { produce } from 'immer';
+import domain from './domain';
 
 const initialValue = [
   { id: crypto.randomUUID(), content: '투두 리스트', completed: false },
@@ -12,20 +12,15 @@ function useTodoListAtom() {
 
   function addTodo(content) {
     const newTodo = { id: crypto.randomUUID(), content, completed: false };
-    setTodoList((old) => [...old, newTodo]);
+    setTodoList(domain.addTodo(newTodo));
   }
 
   function deleteTodo(targetId) {
-    setTodoList((old) => old.filter((todo) => todo.id !== targetId));
+    setTodoList(domain.deleteTodo(targetId));
   }
 
   function completeTodo(targetId) {
-    setTodoList(
-      produce((old) => {
-        const target = old.find((todo) => todo.id === targetId);
-        target.completed = !target.completed;
-      })
-    );
+    setTodoList(domain.completeTodo(targetId));
   }
 
   return { todoList, addTodo, deleteTodo, completeTodo }; // 객체로 만들어서 리턴;

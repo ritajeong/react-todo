@@ -5,7 +5,8 @@
   "main": "src/index.jsx",
   "scripts": {
     "build": "webpack build --config ./webpack.config.js",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "test": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^6.5.1",
     "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.4.3",
     "style-loader": "^3.3.1",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
