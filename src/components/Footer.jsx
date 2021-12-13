@@ -1,8 +1,9 @@
 import React from 'react'
-import useTodoListAtom from '../state';
-export default function Footer() {
+import { useDispatch } from 'react-redux';
+import { clearCompleted } from '../todoListSlice';
 
-  const { clearCompleted } = useTodoListAtom();
+export default function Footer() {
+  const dispatch = useDispatch();
 
   return (
     <footer className="footer">
@@ -24,7 +25,10 @@ export default function Footer() {
             <a href="#/completed" className="">Completed</a>
         </li>
         </ul>
-        <button className="clear-completed" onClick={(e) => clearCompleted()}>Clear completed</button>
+        <button className="clear-completed"
+                onClick={(e) => dispatch(clearCompleted())}>
+          Clear completed
+        </button>
     </footer>
   )
 }

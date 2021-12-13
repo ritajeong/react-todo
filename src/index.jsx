@@ -6,12 +6,12 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 import useTodoListAtom from './state';
 import { store } from './store'
-import { Provider } from 'react-redux'
+import { Provider, useSelector } from 'react-redux'
 
 // https://github.com/twinstae/realworld-react-redux/commits/main/todoMVC-react
 
 function App() {
-  const { todoList } = useTodoListAtom();
+  const todoList = useSelector(state => state.todoList.value);
   return (
     <section className="todoapp">
       <Header />

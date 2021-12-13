@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
-import useTodoListAtom from '../state';
+import { useDispatch } from 'react-redux';
+import { completeTodo, deleteTodo } from '../todoListSlice';
 
-function TodoItem({ id, content, completed}){
-  const { deleteTodo, completeTodo } = useTodoListAtom();
+function TodoItem({ id, content, completed }) {
+  const dispatch = useDispatch();
   
   function handleDelete(e){
-    deleteTodo(id);
+    dispatch(deleteTodo({ targetId: id }));
   }
 
-  function handleComplete(e){
-    completeTodo(id);
+  function handleComplete(e) {
+    dispatch(completeTodo({ targetId: id }));
   }
 
   return (
