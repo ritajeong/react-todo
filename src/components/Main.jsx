@@ -31,7 +31,7 @@ export default function Main({ todoList }) {
       <input id="toggle-all" className="toggle-all" type="checkbox" checked={false} />
       <label htmlFor="toggle-all"></label>
       <ul className="todo-list">
-        {todoList.map(todo => <TodoItem {...todo} />)}
+        {todoList.map(todo => <TodoItem key={todo.id} {...todo} />)}
       </ul>
     </section>
   )

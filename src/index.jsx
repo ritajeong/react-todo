@@ -1,10 +1,9 @@
 import ReactDOM from 'react-dom';
-import React, {useState} from 'react';
+import React from 'react';
 import './index.css';
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
-import useTodoListAtom from './state';
 import { store } from './store'
 import { Provider, useSelector } from 'react-redux'
 
